@@ -1,0 +1,8 @@
+version: '3'
+services:
+  python:
+    image: python:3
+    volumes:
+      - ./:/usr/src/app
+    restart: unless-stopped
+    command: /bin/bash -c "cd /usr/src/app;pip install --no-cache-dir -r requirements.txt;python ./main.py"
