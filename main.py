@@ -1,5 +1,7 @@
+import time
 while True:
-    print("< start >")
+    print("< start >\n")
     for i in range(5):
-        print(i)
-    print("< end >")
+        print(i+"\n")
+        time.sleep(1)
+    print("< end >\n")

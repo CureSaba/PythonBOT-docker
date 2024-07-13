@@ -2,10 +2,9 @@ version: '3.5'
 services:
   python:
     build:
-      container_name: python-git-ffmpeg
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./app:/usr/src/app
     restart: unless-stopped
-    command: git clone https://{$API_KEY}@github.com/{$repo} .;pip install --no-cache-dir -r requirements.txt;python ./main.py
+    command: /bin/bash -c "cd /usr/src/app;git clone https://$API_KEY@github.com/$repo .;pip install --no-cache-dir -r requirements.txt;python ./main.py"
